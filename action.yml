@@ -1,0 +1,31 @@
+name: Ale Github Actions - Deploy
+author: Ale
+description: Deploy apps to Ale
+inputs:
+  endpoint:
+    description: Ale API Endpoint
+    required: true
+  token:
+    description: Ale Access Token
+    required: true
+  project:
+    description: Project Name
+    required: false
+  stage:
+    description: Stage Name
+    required: false
+  allstages:
+    description: Deploy to All Stages
+    required: false
+  file:
+    description: Description File
+    required: false
+  json:
+    description: Description JSON Text
+    required: false
+  yaml:
+    description: Description Yaml Text
+    required: false
+runs:
+  using: node20
+  main: dist/index.js

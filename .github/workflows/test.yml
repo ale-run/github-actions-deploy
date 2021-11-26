@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+jobs:
+  hello-my-actions:
+    runs-on: ubuntu-latest
+    name: Ale Deploy
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: deploy
+        uses: ./
+        with:
+          endpoint: ${{ secrets.ALE_ENDPOINT }}
+          token: ${{ secrets.ALE_TOKEN }}
+          project: "@test/test"
+          stage: main
+          yaml: |-
+            name: myapp
+            app: httpbin
